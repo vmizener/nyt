@@ -9,31 +9,35 @@ src = "./wordle_words.txt"
 
 class Wordle:
     @staticmethod
-    def dump_help():
-        print(
-            textwrap.dedent(
-                """
-                This is a solver utility for "Wordle", a popular word game.
+    def dump_help(silent=True):
+        msg = textwrap.dedent(
+            """
+            This is an interactive solver utility for "Wordle", a popular word game.
 
-                This utility helps by providing a list of legal words, given information from prior guesses.
+            This utility helps by providing a list of legal words, given information from prior guesses.
 
-                Simply input a guess at the ">" prompt, followed by a validation string indicating feedback to the guess at the "?" prompt.  The utility will then provide a list of potential guesses in response.
+            Simply input a guess at the ">" prompt, followed by a validation string indicating feedback to the guess at the "?" prompt.  The utility will then provide a list of potential guesses in response.
 
-                A validation string indicates which letters of a guess are green, yellow, or grey, based on position.
-                E.g. after submitting the guess "earth", a validation string of "gy..." indicates "e" as green, "a" as yellow, and "r", "t", and "h" as grey.
+            A validation string indicates which letters of a guess are green, yellow, or grey, based on position.
 
-                At any time, a user may submit "?" to receive the list of potential guesses.  This list is given automatically once the number of potential options is below a fixed threshold.
+            E.g. after submitting the guess "earth", a validation string of "gy..." indicates "e" as green, "a" as yellow, and "r", "t", and "h" as grey.
 
-                Note that the solver does not respect the game's rule of restricting input to defined words.
+            At any time, a user may submit "?" to receive the list of potential guesses.  This list is given automatically once the number of potential options is below a fixed threshold.
 
-                For reference, the following inputs are supported:
-                    ?     Print a list of potential guesses, given prior guesses.
-                    ??    Print this help message.
-                    ^C    Quit the game.
-                    ^D    Reset the game, forgetting any prior guesses.
-                """
-            )
+            Note that the solver does not respect the game's rule of restricting input to defined words.
+
+
+            For reference, the following inputs are supported:
+                ?     Print a list of potential guesses, given prior guesses.
+                ??    Print this help message.
+                ^C    Quit the game.
+                ^D    Reset the game, forgetting any prior guesses.
+            """
         )
+
+        if silent:
+            print(msg)
+        return msg
 
     def __init__(self, word_len=5, max_guesses=6):
         self.word_len = word_len
@@ -159,26 +163,23 @@ class Wordle:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         formatter_class=argparse.RawDescriptionHelpFormatter,
-        description=textwrap.dedent(
-            """
-            Helper utility for Wordle.
-            """
-        ),
+        description=textwrap.dedent(Wordle.dump_help(silent=False)),
     )
     parser.add_argument(
-        "--word_len",
         "-l",
+        "--word_len",
         type=int,
+        metavar="LEN",
         default=5,
-        help="Length of words.  Default: 5.",
+        help="length of words (default: 5)",
     )
     parser.add_argument(
-        "--max_guesses",
         "-g",
+        "--max_guesses",
         type=int,
-        nargs="?",
+        metavar="NUM",
         default=6,
-        help="Max number of guesses.  Default: 6",
+        help="max number of guesses (default: 6)",
     )
     args = parser.parse_args()
     Wordle(word_len=args.word_len, max_guesses=args.max_guesses).play()

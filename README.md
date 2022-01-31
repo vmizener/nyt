@@ -1,1 +1,1 @@
-# wordle
+# nyt game solvers
