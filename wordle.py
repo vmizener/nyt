@@ -9,7 +9,7 @@ src = "./wordle_words.txt"
 
 class Wordle:
     @staticmethod
-    def dump_help(silent=True):
+    def dump_help(silent=False):
         msg = textwrap.dedent(
             """
             This is an interactive solver utility for "Wordle", a popular word game.
@@ -35,7 +35,7 @@ class Wordle:
             """
         )
 
-        if silent:
+        if not silent:
             print(msg)
         return msg
 
@@ -163,7 +163,7 @@ class Wordle:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         formatter_class=argparse.RawDescriptionHelpFormatter,
-        description=textwrap.dedent(Wordle.dump_help(silent=False)),
+        description=textwrap.dedent(Wordle.dump_help(silent=True)),
     )
     parser.add_argument(
         "-l",
