@@ -76,6 +76,7 @@ class Wordle:
                 print("Game reset.")
                 self.reset()
             except KeyboardInterrupt:
+                print()
                 break
 
     def prompt(self, dump_threshold=25):
