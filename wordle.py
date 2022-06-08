@@ -120,13 +120,15 @@ class Wordle:
     def filter(self, word, validation_string):
         missing = set()
         members = collections.Counter()
+        guess_counts = collections.Counter(word)
         pos_info = {}
         for idx, (c, t) in enumerate(zip(word, validation_string)):
             if t == ".":
-                if any([c in key for key in pos_info.values()]):
-                    # Don't add to missing if it's seen elsewhere
-                    continue
-                missing.add(c)
+                if guess_counts[c] > 1:
+                    # Mark as misplaced instead of missing
+                    pos_info.setdefault(idx, f"-{c}")
+                else:
+                    missing.add(c)
             elif t == "y":
                 members[c] += 1
                 pos_info.setdefault(idx, f"-{c}")
