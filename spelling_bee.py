@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 import argparse
-import pprint
 import textwrap
 
-src = "/usr/share/dict/words"
+WORD_DICT = "/usr/share/dict/words"
 
 # Note that you can also try
 # `dict -s -re -m '^[{chars}]*$' -f | cut -f4 | grep {key_char} | awk 'length >= {min_len}'`
@@ -12,7 +11,7 @@ src = "/usr/share/dict/words"
 def get_words(chars, min_length):
     words = []
     charset = set(chars)
-    with open(src, "r") as fh:
+    with open(WORD_DICT, "r") as fh:
         for line in fh.readlines():
             word = line.strip()
             if len(word) < min_length:
@@ -47,4 +46,5 @@ if __name__ == "__main__":
         help="Minimum word length.  Default: 4",
     )
     args = parser.parse_args()
-    pprint.pprint(get_words(args.chars, args.min_len))
+    for word in get_words(args.chars, args.min_len):
+        print(word)
