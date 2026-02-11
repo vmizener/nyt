@@ -547,6 +547,7 @@ deter
 detox
 deuce
 devil
+devon
 diary
 dicey
 digit
@@ -853,6 +854,7 @@ ghost
 ghoul
 giant
 giddy
+gimps
 gipsy
 girly
 girth
@@ -2068,6 +2070,7 @@ tight
 tilde
 timer
 timid
+tinge
 tipsy
 titan
 tithe
