@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 import argparse
 import collections
+import os.path
 import string
 import textwrap
 
-src = "./wordle_words.txt"
+src = os.path.dirname(os.path.abspath(__file__)) + "/wordle_words.txt"
 
 
 class Wordle:
