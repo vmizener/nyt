@@ -117,6 +117,7 @@ aside
 askew
 assay
 asset
+asura
 atoll
 atone
 attic
@@ -1802,6 +1803,7 @@ slump
 slung
 slunk
 slurp
+slurs
 slush
 slyly
 smack
@@ -2183,6 +2185,7 @@ usher
 using
 usual
 usurp
+usury
 utile
 utter
 vague
