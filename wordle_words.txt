@@ -12,6 +12,7 @@ about
 above
 abuse
 abyss
+ached
 acorn
 acrid
 actor
@@ -799,6 +800,7 @@ forth
 forty
 forum
 found
+fours
 foyer
 frail
 frame
@@ -1533,6 +1535,7 @@ quoth
 rabbi
 rabid
 racer
+racks
 radar
 radii
 radio
@@ -2119,6 +2122,7 @@ tribe
 trice
 trick
 tried
+trill
 tripe
 trite
 troll
