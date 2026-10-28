@@ -570,6 +570,7 @@ dizzy
 dodge
 dodgy
 dogma
+doily
 doing
 dolly
 donor
@@ -814,6 +815,7 @@ friar
 fried
 frill
 frisk
+frist
 fritz
 frock
 frond
@@ -919,6 +921,7 @@ grime
 grimy
 grind
 gripe
+grist
 groan
 groin
 groom
@@ -2124,6 +2127,7 @@ trick
 tried
 trill
 tripe
+trist
 trite
 troll
 troop
